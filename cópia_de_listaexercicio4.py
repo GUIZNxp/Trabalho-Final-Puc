@@ -100,18 +100,18 @@ df_2
 df_3 = df_2.groupby("Ano")[["Receita Líquida", "Receita Real"]].sum().reset_index()
 
 
-plt.figure(figsize=(10,6))
+fig, ax = plt.subplots(figsize=(10, 6))
 
-plt.plot(df_3['Ano'], df_3['Receita Líquida'], marker='o', label='Receita Líquida')
-plt.plot(df_3['Ano'], df_3['Receita Real'], marker='o', label='Receita Real')
+ax.plot(df_3['Ano'], df_3['Receita Líquida'], marker='o', label='Receita Líquida')
+ax.plot(df_3['Ano'], df_3['Receita Real'], marker='o', label='Receita Real')
 
-plt.title('Receita Líquida vs Receita Real ao longo dos anos ')
-plt.xlabel('Ano')
-plt.ylabel('Valor (R$) em milhões')
-plt.legend()
-plt.grid(True)
-plt.tight_layout()
-plt.show()
+ax.set_title('Receita Líquida vs Receita Real ao longo dos anos ')
+ax.set_xlabel('Ano')
+ax.set_ylabel('Valor (R$) em milhões')
+ax.legend()
+ax.grid(True)
+fig.tight_layout()
+st.pyplot(fig)
 
 """7) Faça os ajustes necessários e leve este projeto para a web usando GitHub e Streamlit (peso: 2,0)
 
